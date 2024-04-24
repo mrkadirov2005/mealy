@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import MealsReducer from "./mealsSlice/mealsSlice";
-import thunk from 'redux-thunk';
 import mealsReducer from "./mealsSlice/mealsSlice"
 
-
-
 const store = configureStore({
-  reducer: mealsReducer,
-  
+  reducer: {
+    meals: mealsReducer,
+  },
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
 export default store;
