@@ -2,7 +2,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import store from "../reducers/store"
-import HomePage from '../pages/HomePage'
+import HomePage from '../pages/HOME/HomePage'
 export default function LayOut() {
 
   return (
