@@ -16,7 +16,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  "use client"
+  // "use client"
   return (
     <html lang="en">
       <body className={inter.className}>{children}</body>
