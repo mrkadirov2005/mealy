@@ -21,7 +21,8 @@ export default function Footer() {
             <h3 className={Styled.h3}>Biz Haqimizda</h3>
 
 
-            <a href='Topshirish punktlari' className={Styled.a}>Topshirish punktlari</a>
+            <a href='Topshirish punktlari' className={Styled.a}>Topshirish punktlari
+            lorem2562</a>
             <a href='Vakansiyalar' className={Styled.a}>Vakansiyalar</a>
           </div>
 
