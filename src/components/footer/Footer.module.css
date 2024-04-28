@@ -1,0 +1,51 @@
+.footer {
+    width: 1269px;
+    height: 65px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Section {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+.About {
+    width: 297px;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.Users {
+    width: 297px;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.Bussines {
+    width: 297px;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+
+}
+
+.a {
+    text-decoration: none;
+    color: #8B8E99;
+   width: 297px;
+   height: 16px;
+  margin:10px;   
+
+}

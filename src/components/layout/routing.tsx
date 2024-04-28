@@ -1,14 +1,16 @@
+"use client"
 import Link from 'next/link'
 import React from 'react'
+import { LinkStyles, RoutingContainer } from './routing_styles'
 
 const Routing = () => {
   return (
-    <div>
-        <Link href="/home">Home</Link>
-        <Link href="/clothes">Clothes</Link>
-        <Link href="/meals">Meals</Link>
-        <Link href="/filters">Filters</Link>
-       </div>
+    <RoutingContainer>
+        <Link style={LinkStyles} href="/home">Home</Link>
+        <Link style={LinkStyles} href="/clothes">Clothes</Link>
+        <Link style={LinkStyles} href="/meals">Meals</Link>
+        <Link style={LinkStyles} href="/filters">Filters</Link>
+       </RoutingContainer>
   )
 }
 

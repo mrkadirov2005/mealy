@@ -11,3 +11,32 @@ body{
     height: auto;
     /*TODO configured html and body*/
 }
+.dark{
+    background-color: darkgrey;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.left_switches{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: auto;
+    height: 65vh;
+    background-color: green;
+}
+.innerContainer {
+  width: 300px;
+}
+.right_products{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: red;
+    height: 65vh;
+
+}
