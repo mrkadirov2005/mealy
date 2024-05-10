@@ -12,7 +12,14 @@ export default function Header() {
     setIsChecked(!isChecked);
     document.body.classList.toggle("dark")
   };
+  
+const handleLogin=()=>{
+  const registerPage=document.getElementById("register_page_container") as HTMLDivElement
+  registerPage.style.display="flex"
+  const contentPage=document.getElementById("content_page_wrapper") as HTMLDivElement
+  contentPage.style.display="none"
 
+}
   return (
     <div className={`${Styled.header} ${isChecked ? Styled.checked : ''}`}>
 
@@ -20,7 +27,7 @@ export default function Header() {
       <div className={isChecked ? Styled.checkedDropdown : Styled.pasteButton}>
         <button className={isChecked ? Styled.checkedButton : Styled.button}>Categories</button>
         <div className={isChecked ? Styled.checkedDropdownContent : Styled.dropdownContent}>
-          <Link href="/home" className={isChecked ? Styled.checkedItem : Styled.dropdownItem}>Home</Link>
+          <Link href="/" className={isChecked ? Styled.checkedItem : Styled.dropdownItem}>Home</Link>
           <Link href="/clothes" className={isChecked ? Styled.checkedItem : Styled.dropdownItem}>Clothes</Link>
           <Link href="/meals" className={isChecked ? Styled.checkedItem : Styled.dropdownItem}>Meals</Link>
           <Link href="/filters" className={isChecked ? Styled.checkedItem : Styled.dropdownItem}>Products</Link>
@@ -36,7 +43,7 @@ export default function Header() {
        alt="nature"
         />
 
-      <Link href="/register" className={isChecked ? Styled.checkedLogin : Styled.login}>Login</Link>
+      <button onClick={()=>handleLogin()} className={isChecked ? Styled.checkedLogin : Styled.login}>Login</button>
 
       <label className={Styled.switch}>
         <input type='checkbox' checked={isChecked} onChange={()=>handleCheckboxChange()} />

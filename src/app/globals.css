@@ -1,42 +1,111 @@
 html{
     margin: 0;
     padding: 0;
-    width: 100vw;
+    max-width: 100vh;
+    width: 100% ;
     height: auto;
 }
 body{
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: 100vw;
     height: auto;
-    /*TODO configured html and body*/
+    box-sizing: border-box;
+}
+.main_children_wrapper{
+display: flex;
+width: 100%;    
+}
+.site_main_wrapper{
+width: 100vw;
+padding: 0;
+/* padding-top: 110px; */
+margin: 0;
+display: flex;
+flex-direction: row;
+height: fit-content;
+}
+.content_page_wrapper{
+    display: flex;
+    flex-direction: column;
 }
 .dark{
     background-color: darkgrey;
 }
+.body_top {
+    position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: 101;
+  
+}
+/* register page styles */
+.register_page_container {
+  display: none;
+}
 main{
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 .left_switches{
+    /* position:relative; */
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
     width: auto;
-    height: 65vh;
-    background-color: green;
+    height: fit-content;
+    background-color: lightgrey;
 }
 .innerContainer {
-  width: 300px;
+  width: 275px;
+  margin-left: auto;
+  padding-left:25px;
+}
+.disabled{
+    display: none;
 }
 .right_products{
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    background-color: red;
-    height: 65vh;
+    /* background-color:lightgrey; */
+    height: fit-content;
+    /* padding-left:35px; */
+    margin:0;
+    border-left: 2px solid grey;
 
+}
+#toggler_button{
+position:fixed;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-left: auto;
+font-size: 5px;
+height: 35px;
+opacity: 0.6; 
+border-top-right-radius: 50%;
+border-bottom-right-radius: 50%;
+width: 2px;
+top: 47vh;
+
+}
+
+#toggler_button:hover{
+    font-size: medium;
+    opacity: 1;
+    width: 35px;
+    height: 35px;
+}
+.shrink_nav_bar{
+    width: 0px !important;
+}
+.shrinked_button{
+    width: 25px;
+    height: 25px;
 }

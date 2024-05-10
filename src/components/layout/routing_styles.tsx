@@ -14,8 +14,9 @@ padding:0;
 export const LinkStyles={
     "display":"flex",
     "color":"white",
-    "text-decoration":"none",
+    "textDecoration":"none",
     "width":"45px"
 
 }
+
 
