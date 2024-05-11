@@ -1,5 +1,5 @@
 "use client";
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
 // import LayOut from "../components/layout/page";
 import store from "../reducers/store";
 import React, { useState } from "react";
@@ -7,8 +7,12 @@ import Routing from "@/components/layout/routing";
 import Filters from "./filters/page";
 import FiltersComp from "@/components/filters/checkbox/page";
 import Header from "@/components/header/page";
+import { fetchMealsData } from "@/reducers/mealsSlice/mealsthunk/mealsThunk";
+import HomeProducts from "./home/page";
 const Home = () => {
   const [nav,setNav]=useState<boolean>(true)
+  // const dispatch=useDispatch()
+  // dispatch(fetchMealsData())
 
   const handleLeftNavToggler=()=>{
 document.getElementById("main_nav_toggler")?.classList.toggle("shrink_nav_bar")
@@ -23,7 +27,7 @@ setNav(!nav)
     
 
         <div className="main_global_container">
-        <Routing />
+        {/* <Routing /> */}
 						<Header />
           <div className="site_main_wrapper">
           
@@ -33,7 +37,7 @@ setNav(!nav)
              <FiltersComp/>
             </div>
             <div className="right_products">
-              hello
+            <HomeProducts></HomeProducts>
             </div>
           </div>
         </div>

@@ -1,0 +1,1 @@
+export const getAllMeals=(state)=>state.meals.meals
