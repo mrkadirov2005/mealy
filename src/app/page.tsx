@@ -1,14 +1,14 @@
 "use client";
-import { Provider, useDispatch } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 // import LayOut from "../components/layout/page";
-import store from "../reducers/store";
+import store, { persistedStore } from "../reducers/store";
 import React, { useState } from "react";
-import Routing from "@/components/layout/routing";
-import Filters from "./filters/page";
 import FiltersComp from "@/components/filters/checkbox/page";
 import Header from "@/components/header/page";
-import { fetchMealsData } from "@/reducers/mealsSlice/mealsthunk/mealsThunk";
-import HomeProducts from "./home/page";
+import HomeProducts from "./products/page";
+import { PersistGate } from "redux-persist/integration/react";
+import { getScreen } from "@/settings/selectors";
+import ProductPage from "./product/page";
 const Home = () => {
   const [nav,setNav]=useState<boolean>(true)
   // const dispatch=useDispatch()
@@ -22,25 +22,24 @@ document.getElementById("main_inner_container")?.classList.toggle("disabled")
 setNav(!nav)
   }
   
+const [displayMode,setDisplayMode]=useState<boolean>(false)
   return (
     <Provider store={store}>
-    
-
-        <div className="main_global_container">
-        {/* <Routing /> */}
+    <PersistGate persistor={persistedStore}>
+      { !displayMode? <div className="main_global_container">
 						<Header />
           <div className="site_main_wrapper">
-          
              <button id="toggler_button" onClick={()=>handleLeftNavToggler()}>{!nav?"➡️":"X"}</button>
             <div className="left_switches" id="main_nav_toggler" >
-          
              <FiltersComp/>
             </div>
             <div className="right_products">
-            <HomeProducts></HomeProducts>
+            <HomeProducts setToMain={setDisplayMode}/>
             </div>
           </div>
         </div>
+        :<ProductPage setToMain={setDisplayMode}/>}
+        </PersistGate>
     </Provider>
   );
 };

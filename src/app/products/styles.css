@@ -1,0 +1,10 @@
+.meal_items{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 33%;
+}
+.meal_items:hover{
+    background-color: grey;
+}

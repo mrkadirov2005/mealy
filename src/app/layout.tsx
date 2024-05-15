@@ -5,8 +5,10 @@ import Routing from "@/components/layout/routing";
 import Header from "@/components/header/page";
 import Footer from "@/components/footer/page";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import RegisterPage from "./register/page";
+import store, { persistedStore } from "@/reducers/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,7 +32,7 @@ export default function RootLayout({
 
 				<div className="content_page_wrapper" id="content_page_wrapper">
 					<div className="body_top">
-
+					
 					</div>
 					<div className="main_children_wrapper">{children}</div>
 					<Footer />

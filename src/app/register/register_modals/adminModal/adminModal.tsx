@@ -1,10 +1,16 @@
 import React from "react";
 import "./admin_panel.css";
 import { handleCloseModal } from "../actions";
+import { useDispatch } from "react-redux";
 interface PROPS{
     setOption:React.Dispatch<React.SetStateAction<number>>
 }
 const AdminPanel = ({setOption}:PROPS) => {
+	const dispatch=useDispatch()
+	
+const handleGetAdmin=()=>{
+
+}
 	return (
 		<div className="admin_panel_container" id="admin_panel_container">
 			<form className="admin_panel_inner_container" id="admin_panel_inner_container">
@@ -29,7 +35,7 @@ const AdminPanel = ({setOption}:PROPS) => {
 					password:
 					<input className="admin_panel_inputs" required id="admin_password" type="text" placeholder="admin password" />
 				</label>
-				<button className="admin_submit_form" id="admin_submit_form">
+				<button className="admin_submit_form" id="admin_submit_form" onClick={()=>handleGetAdmin()}>
 					submit
 				</button>
 			</form>
