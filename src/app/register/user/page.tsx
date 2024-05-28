@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from "react";
 import "./user_panel.css";
-import { handleCloseModal } from "../actions";
+import { handleCloseModal } from "../register_modals/actions";
 interface PROPS{
     setOption:React.Dispatch<React.SetStateAction<number>>
 }

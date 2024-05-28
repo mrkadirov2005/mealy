@@ -26,16 +26,9 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<div className="register_page_container" id="register_page_container">
-					<RegisterPage />
-				</div>
-
 				<div className="content_page_wrapper" id="content_page_wrapper">
-					<div className="body_top">
-					
-					</div>
 					<div className="main_children_wrapper">{children}</div>
-					<Footer />
+					
 				</div>
 			</body>
 		</html>

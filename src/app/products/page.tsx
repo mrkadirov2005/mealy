@@ -9,13 +9,14 @@ import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import store, { persistedStore } from '@/reducers/store'
 import { PersistGate } from 'redux-persist/integration/react'
+import Card  from "@mui/material/Card";
+import { Button } from '@mui/material'
 
 interface PROPS{
   setToMain:React.Dispatch<React.SetStateAction<boolean>>
 }
 export default function HomeProducts({setToMain}:PROPS) {
   const dispatch=useDispatch()
-  const {id}=useParams()
   
   useEffect(() => {
     dispatch(fetchMealsData())
@@ -39,7 +40,7 @@ setToMain(true)
       <ul style={{display:"flex", flexWrap:"wrap"}}>
 
       {AllMeals.map(item=>
-      <li id={item.id} onClick={(e)=>handleSetSingleItem(e)} className='meal_items'>
+      <Card id={item.id} onClick={(e)=>handleSetSingleItem(e)} className='meal_items'>
         <h1>
       {item.name}
 
@@ -47,8 +48,8 @@ setToMain(true)
       <img src={item.image} alt={`image of ${item.name}`} />
       <h1>{item.price}</h1>
       <h4>{item.producer}</h4>
-      <button>view</button>
-      </li>
+      <Button variant="contained">view</Button>
+      </Card>
       )}
       </ul>
     </div>

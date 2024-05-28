@@ -5,19 +5,23 @@ import Styled from './header.module.css'
 import { useState } from 'react'
 import Image from 'next/image'
 
-export default function Header() {
+interface PROPS{
+  props:{
+    setReg: React.Dispatch<React.SetStateAction<boolean>>,
+    reg:boolean
+
+  }
+}
+
+export default function Header({props:{setReg,reg}}:PROPS) {
   const [isChecked, setIsChecked] = useState<boolean>(false);
-  const [background,setBackground]=useState<boolean>()
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
     document.body.classList.toggle("dark")
   };
   
 const handleLogin=()=>{
-  const registerPage=document.getElementById("register_page_container") as HTMLDivElement
-  registerPage.style.display="flex"
-  const contentPage=document.getElementById("content_page_wrapper") as HTMLDivElement
-  contentPage.style.display="none"
+setReg(!reg)
 
 }
   return (

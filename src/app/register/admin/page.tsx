@@ -1,12 +1,13 @@
+"use client"
+
 import React from "react";
 import "./admin_panel.css";
-import { handleCloseModal } from "../actions";
-import { useDispatch } from "react-redux";
+import { handleCloseModal } from "../register_modals/actions";
+import { useDispatch, useSelector } from "react-redux";
 interface PROPS{
     setOption:React.Dispatch<React.SetStateAction<number>>
 }
 const AdminPanel = ({setOption}:PROPS) => {
-	const dispatch=useDispatch()
 	
 const handleGetAdmin=()=>{
 

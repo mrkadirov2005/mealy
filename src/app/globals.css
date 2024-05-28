@@ -84,27 +84,11 @@ main{
 
 }
 #toggler_button{
-position:fixed;
-display: flex;
-align-items: center;
-justify-content: center;
-margin-left: auto;
-font-size: 5px;
-height: 35px;
-opacity: 0.6; 
 border-top-right-radius: 50%;
 border-bottom-right-radius: 50%;
-width: 2px;
-top: 47vh;
 
 }
 
-#toggler_button:hover{
-    font-size: medium;
-    opacity: 1;
-    width: 35px;
-    height: 35px;
-}
 .shrink_nav_bar{
     width: 0px !important;
 }
