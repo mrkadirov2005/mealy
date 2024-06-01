@@ -1,78 +1,55 @@
 "use client"
-import React, { useState } from "react";
+import React from "react";
 import "./user_panel.css";
 import { handleCloseModal } from "../register_modals/actions";
-interface PROPS{
-    setOption:React.Dispatch<React.SetStateAction<number>>
-}
-const UserPanel = ({setOption}:PROPS) => {
-	const [regType,setRegtype]=useState<boolean>(false)
-	return (
-		<div className="user_panel_container" id="user_panel_container">
-			{regType?<form className="user_panel_inner_container" id="user_panel_inner_container">
-				<h1 className="user_panel_heading">
-					<button className="user_panel_back_to_roles" id="user_panel_back_to_roles" onClick={() => setOption(0)}>
-						⬅️
-					</button>
-					user Panel{" "}
-					<button className="user_panel_exit" id="user_panel_exit" onClick={() => handleCloseModal()}>
-						X
-					</button>
-				</h1>
-				<label className="user_label" htmlFor="user_password">
-					username:
-					<input className="user_panel_inputs" required id="user_password" type="text" placeholder="user username" />
-				</label>
-				<label className="user_label" htmlFor="user_password">
-					password:
-					<input className="user_panel_inputs" required id="user_password" type="text" placeholder="user username" />
-				</label>
-				<button className="user_submit_form" id="user_submit_form">
-					submit
-				</button>
-				<button className="change_register_type" id="change_register_type" onClick={()=>setRegtype(!regType)}>register</button>
+import { Button, Card, Input } from "@mui/material";
+import Link from "next/link";
 
-			</form>
-			:
-			<form className="user_panel_inner_container user_panel_register_part" id="user_panel_inner_container">
-				<h1 className="user_panel_heading">
-					<button className="user_panel_back_to_roles" id="user_panel_back_to_roles" onClick={() => setOption(0)}>
-						⬅️
-					</button>
-					user Panel{" "}
-					<button className="user_panel_exit" id="user_panel_exit" onClick={() => handleCloseModal()}>
-						X
-					</button>
-				</h1>
-				<label className="user_label" htmlFor="user_first_name">
-					firstname:
-					<input className="user_panel_inputs" required id="user_first_name" type="text" placeholder="first name" />
-				</label>
-				<label className="user_label" htmlFor="user_last_name">
-					lastname:
-					<input className="user_panel_inputs" required id="user_last_name" type="text" placeholder="user lastname" />
-				</label>
-				<label className="user_label" htmlFor="user_username">
-					username:
-					<input className="user_panel_inputs" required id="user_username" type="text" placeholder="username" />
-				</label>
-				<label className="user_label" htmlFor="user_email">
-					email:
-					<input className="user_panel_inputs" required id="user_email" type="email" placeholder="email" />
-				</label>
-				<label className="user_label" htmlFor="user_password">
-					password:
-					<input className="user_panel_inputs" required id="user_password" type="password" placeholder="password" />
-				</label>
-				<button className="user_submit_form" id="user_submit_form">
-					submit
-				</button>
-				<button className="change_register_type" id="change_register_type" onClick={()=>setRegtype(!regType)}>login</button>
-			</form>
-			}
+const UserPanel = () => {
+  return (
+    <div className="user_panel_container w-screen h-screen bg-gray-800 "  id="user_panel_container">
+      <Card className="flex w-2/5 bg-gray-400 h-3/5 pt-8 p-2">
+        <form className="flex flex-col items-center justify-between ml-auto mr-auto h-72  w-3/5 gap-2" id="user_panel_inner_container">
+          <h1 className="user_panel_heading font-bold text-2xl">
 
-		</div>
-	);
+            User{" "}
+            <Link href="/" className="user_panel_exit text-xl hover:bg-blue-800 text-white text-center w-fit" id="user_panel_exit" >
+              X
+            </Link>
+          </h1>
+          <label className="user_label" htmlFor="user_first_name">
+            First Name:
+            <Input className=" w-full ml-auto mr-auto hover:bg-gray-200 text-black" required={true} id="user_first_name" type="text" placeholder="User first name" />
+          </label>
+
+          <label className="user_label" htmlFor="user_last_name">
+            Last name:
+            <Input className=" w-full ml-auto mr-auto hover:bg-gray-200 text-black" required={true} id="user_last_name" type="text" placeholder="User last name" />
+          </label>
+
+          <label className="user_label" htmlFor="user_username">
+            Username:
+            <Input className=" w-full ml-auto mr-auto hover:bg-gray-200 text-black" required={true} id="user_username" type="text" placeholder="User username" />
+          </label>
+
+          <label className="user_label" htmlFor="user_email">
+            Email:
+            <Input className=" w-full ml-auto mr-auto hover:bg-gray-200 text-black" required={true} id="user_email" type="email" placeholder="User email" />
+          </label>
+
+          <label className="user_label" htmlFor="user_password">
+            Password:
+            <Input className=" w-full ml-auto mr-auto hover:bg-gray-200 text-black" required={true} id="user_password" type="password" placeholder="User Password" />
+          </label>
+
+          <Button color="secondary" className="user_submit_form" id="user_submit_form">
+            SUBMIT
+            {/* TODO add button padding*/}
+          </Button>
+        </form>
+      </Card>
+    </div>
+  );
 };
 
 export default UserPanel;

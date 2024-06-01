@@ -7,7 +7,7 @@ interface MealsState {
 }
 
 const initialState: MealsState = {
-  meals: [],
+  meals:[],
   isLoading: false,
   error: null,
 };

@@ -4,6 +4,7 @@ import mealReducer from "./mealSlice/mealSlice";
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import persistStore from 'redux-persist/es/persistStore';
+import adminReducer from './admin/adminSlice';
 
 // Define the Redux Persist configuration
 const persistConfig = {
@@ -17,7 +18,8 @@ const persistConfig = {
 // Combine your reducers
 const rootReducer = combineReducers({
   meals: mealsReducer,
-  meal: mealReducer
+  meal: mealReducer,
+  admin:adminReducer
 });
 
 // Wrap the combined reducer with Redux Persist
