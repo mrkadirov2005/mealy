@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import {ADMIN,fetchAdminData} from "./adminThunk/adminThunk"
+import { fetchVIPData,VIP } from './vipThunk/vipThunk';
 
 
 interface MealsState {
-  admin: ADMIN[];
+  admin: VIP[];
   isLoading: boolean;
   error: string | null | undefined;
 }
@@ -18,29 +18,29 @@ const adminSLice = createSlice({
   name: 'admin',
   initialState,
   reducers: {
-    setAdmin(state, action: PayloadAction<ADMIN[]>) {
+    setVIP(state, action: PayloadAction<VIP[]>) {
       state.admin = action.payload;
     },
     
     setLoading(state, action: PayloadAction<boolean>) {
       state.isLoading = action.payload;
     },
-    setAdminError(state, action) {
+    setVIPError(state, action) {
       state.error = action.payload;
     },
 
   },extraReducers(builder){
-    builder.addCase(fetchAdminData.fulfilled,(state,action)=>{
+    builder.addCase(fetchVIPData.fulfilled,(state,action)=>{
       state.admin=action.payload
       state.isLoading=false
       state.error=null
     })
-    builder.addCase(fetchAdminData.rejected,(state,action)=>{
+    builder.addCase(fetchVIPData.rejected,(state,action)=>{
       state.admin=[]
       state.isLoading=false
       state.error=action.error.message
     })
-    builder.addCase(fetchAdminData.pending,(state,action)=>{
+    builder.addCase(fetchVIPData.pending,(state,action)=>{
       state.admin=[]
       state.isLoading=true
       state.error=""
@@ -48,6 +48,6 @@ const adminSLice = createSlice({
 
   }});
 
-export const { setAdmin, setLoading, setAdminError } = adminSLice.actions;
+export const { setVIP, setLoading, setVIPError } = adminSLice.actions;
 
 export default adminSLice.reducer;

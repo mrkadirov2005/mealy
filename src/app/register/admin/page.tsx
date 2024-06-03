@@ -25,8 +25,7 @@ const AdminPanel = () => {
         dispatch(setAdminError(""));
       }, 3000);
 		} else {
-      // alert(email)
-      // alert(password)
+      
 			dispatch(fetchAdminData({email, password }));
 		}
 	};

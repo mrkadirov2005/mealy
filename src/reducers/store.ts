@@ -5,6 +5,8 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import persistStore from 'redux-persist/es/persistStore';
 import adminReducer from './admin/adminSlice';
+import vipreducer from './vip/vipSlice';
+
 
 // Define the Redux Persist configuration
 const persistConfig = {
@@ -19,7 +21,8 @@ const persistConfig = {
 const rootReducer = combineReducers({
   meals: mealsReducer,
   meal: mealReducer,
-  admin:adminReducer
+  admin:adminReducer,
+  vip:vipreducer
 });
 
 // Wrap the combined reducer with Redux Persist

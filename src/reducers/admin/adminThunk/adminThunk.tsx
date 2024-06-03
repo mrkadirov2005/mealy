@@ -28,7 +28,7 @@ interface PROPS {
 
 // Define an async thunk for fetching admin data
 export const fetchAdminData = createAsyncThunk<ADMIN[], PROPS>(
-  'admin/fetchAdmin',
+  'admin/fetchAdminLogin',
   async ({ email, password }: PROPS) => {
     try {
       alert(email)
