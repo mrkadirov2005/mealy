@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {ADMIN,fetchAdminData} from "./adminThunk/adminThunk"
+import { LogOutAdmin } from './adminThunk/adminLogOutThunk';
 
 
 interface MealsState {
@@ -45,7 +46,20 @@ const adminSLice = createSlice({
       state.isLoading=true
       state.error=""
     })
+    builder.addCase(LogOutAdmin.fulfilled,(state,action)=>{
+      state.error="succesfully logged Out"
+      state.admin=[]
+      state.isLoading=false
+    })
+    builder.addCase(LogOutAdmin.rejected,(state,action)=>{
+      state.error=action.payload
+      state.admin=[]
+      state.isLoading=false
 
+    })
+    builder.addCase(LogOutAdmin.pending,(state)=>{
+      state.isLoading=true
+    })
   }});
 
 export const { setAdmin, setLoading, setAdminError } = adminSLice.actions;

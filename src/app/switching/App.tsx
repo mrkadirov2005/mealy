@@ -9,11 +9,17 @@ import RegisterPage from '../register/page'
 import Link from 'next/link'
 import RegisterLayout from '../register/page'
 
-export default function Site_wrapper() {
+export default function Site_wrapper({
+	children,
+}: Readonly<{
+	children: React.ReactNode;
+}>) {
 	// "use client"
 	
 const [displayMode,setDisplayMode]=useState<boolean>(false)
+// left side nav bar toggler 
 const [nav,setNav]=useState<boolean>(true)
+// toggle register screen
 const [reg,setReg]=useState<boolean>(false)
 
 const handleLeftNavToggler=()=>{

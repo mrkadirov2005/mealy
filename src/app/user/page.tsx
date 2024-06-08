@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import "./user_styles.css"
 import Image from 'next/image'
-const UserPanel = () => {
+const UserPanelInfo= () => {
   const [open,setOpen]=useState<boolean>(false)
   const handleOptionsOpen=()=>{
     document.getElementById("user_page_option_menu")?.classList.toggle("enabled")
@@ -33,4 +33,4 @@ const UserPanel = () => {
   )
 }
 
-export default UserPanel
+export default UserPanelInfo

@@ -8,16 +8,19 @@ import { Provider, useDispatch, useSelector } from "react-redux";
 import { fetchAdminData } from "@/reducers/admin/adminThunk/adminThunk";
 import { getAdminError } from "@/settings/selectors";
 import { setAdminError } from "@/reducers/admin/adminSlice";
+import { LogOutAdmin } from "@/reducers/admin/adminThunk/adminLogOutThunk";
 interface PROPS {
-	setOption: React.Dispatch<React.SetStateAction<number>>;
+	set_auth_type: React.Dispatch<React.SetStateAction<number | string | undefined>>;
 }
 
-const AdminPanel = () => {
+const AdminPanel = ({set_auth_type}:PROPS) => {
 	const dispatch = useDispatch();
 	const error = useSelector(getAdminError);
 
+
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string | number>();
+	const adminError=useSelector(getAdminError)
 	const handleGetAdmin = () => {
 		if (!email || !password) {
 			dispatch(setAdminError("email and password are required"));
@@ -25,10 +28,35 @@ const AdminPanel = () => {
         dispatch(setAdminError(""));
       }, 3000);
 		} else {
+			
       
 			dispatch(fetchAdminData({email, password }));
+
+			
 		}
+
+
+		if(adminError!==null){
+
+			dispatch(set_auth_type("admin"))
+		}
+		
 	};
+	const handleAdminLogOut=()=>{
+		if (!email || !password) {
+			dispatch(setAdminError("email and password are required"));
+      setTimeout(() => {
+        dispatch(setAdminError(""));
+      }, 3000);
+		} else {
+			
+      
+			dispatch(LogOutAdmin({email, password }));
+
+			
+		}
+
+	}
 	return (
 		<div className="admin_panel_container w-screen h-screen bg-gray-800 " id="admin_panel_container">
 			<Card className="flex w-2/6 bg-gray-400 h-3/7 p-8">
@@ -90,6 +118,7 @@ const AdminPanel = () => {
 						SUBMIT
 					</Button>
 					<h4 className="text-red-500">{error==="Request failed with status code 409"?"already signed in":error ? error : ""}</h4>
+					<Button onClick={()=>handleAdminLogOut()}>Log Out</Button>
 				</form>
 			</Card>
 		</div>
