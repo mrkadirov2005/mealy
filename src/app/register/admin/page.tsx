@@ -20,13 +20,17 @@ const AdminPanel = ({set_auth_type}:PROPS) => {
 
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string | number>();
-	const adminError=useSelector(getAdminError)
+
+
+
 	const handleGetAdmin = () => {
 		if (!email || !password) {
 			dispatch(setAdminError("email and password are required"));
+
       setTimeout(() => {
         dispatch(setAdminError(""));
       }, 3000);
+
 		} else {
 			
       
@@ -35,13 +39,17 @@ const AdminPanel = ({set_auth_type}:PROPS) => {
 			
 		}
 
+		console.log("current error state is:" ,error)
+	
 
-		if(adminError!==null){
-
+		if(error==undefined || error==null){
+			console.log(error)
 			dispatch(set_auth_type("admin"))
 		}
 		
 	};
+
+
 	const handleAdminLogOut=()=>{
 		if (!email || !password) {
 			dispatch(setAdminError("email and password are required"));
@@ -54,6 +62,16 @@ const AdminPanel = ({set_auth_type}:PROPS) => {
 			dispatch(LogOutAdmin({email, password }));
 
 			
+		}
+		if(error!=null){
+
+			console.log(error)
+			return
+		}
+
+		if(error===null){
+			console.log(error)
+			return
 		}
 
 	}
@@ -117,7 +135,7 @@ const AdminPanel = ({set_auth_type}:PROPS) => {
 					>
 						SUBMIT
 					</Button>
-					<h4 className="text-red-500">{error==="Request failed with status code 409"?"already signed in":error ? error : ""}</h4>
+					<h4 className="text-red-500">{error==="Request failed with status code 409"?"already signed in":error ? <div>{error} </div> : ""}</h4>
 					<Button onClick={()=>handleAdminLogOut()}>Log Out</Button>
 				</form>
 			</Card>
